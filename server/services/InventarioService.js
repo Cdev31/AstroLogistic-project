@@ -32,21 +32,20 @@ class InventarioService {
         return productoItem
     }
 
-    increaseStock(id, quantity) {
-
-        if (productoItem <= 0) {
-            throw new Error("Cantidad no permitida");
-        }
-
-        const productoItem = this.findById(id);
-
-        if (!productoItem) {
-            throw new Error("El suministro no existe en la base")
-        }
-
-        productoItem.stock += quantity;
-        return productoItem;
+   increaseStock(id, quantity) {
+    if (!Number.isInteger(quantity) || quantity <= 0) {
+        throw new Error("Cantidad no permitida");
     }
+
+    const productoItem = this.findById(id);
+
+    if (!productoItem) {
+        throw new Error("El suministro no existe en la base");
+    }
+
+    productoItem.stock += quantity;
+    return productoItem;
+}
 }
 
 module.exports = { InventarioService }
