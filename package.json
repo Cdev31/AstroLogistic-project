@@ -1,0 +1,16 @@
+{
+  "name": "astro-proj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev:client": "npm run dev --workspaces=client",
+    "dev:server": "npm run dev --workspaces=server",
+    "dev": "npm run dev:server & npm run dev:client"
+  }
+}
