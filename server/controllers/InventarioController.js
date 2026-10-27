@@ -1,8 +1,6 @@
-const { InventarioService } = require("../services/InventarioService");
-
 class InventarioController {
-    constructor() {
-        this.inventoryService = new InventarioService();
+    constructor(inventarioService) {
+        this.inventoryService = inventarioService;
     }
 
     showInventory = (_, res) => {
@@ -11,7 +9,7 @@ class InventarioController {
             res.status(200).json(inventory);
         } catch (error) {
             res.status(400).json({
-                message: "Error de carga"
+                mensaje: "Error de carga"
             });
         }
     }
