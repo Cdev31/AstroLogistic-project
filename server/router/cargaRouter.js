@@ -1,7 +1,19 @@
 const { Router } = require("express");
+const { CargaController } = require("../controllers/CargaController");
 
+function crearCargaRouter(cargaService) {
+    const cargaRouter = Router();
+    const cargaController = new CargaController(cargaService);
 
-const cargaRouter = Router();
+    cargaRouter.get("/", cargaController.showCarga);
 
+    cargaRouter.post("/agregar", cargaController.addCarga);
 
-module.exports = { cargaRouter }
+    cargaRouter.put("/actualizar-unidades/:id", cargaController.updateCarga);
+
+    cargaRouter.delete("/eliminar/:id", cargaController.deleteCarga);
+
+    return cargaRouter;
+}
+
+module.exports = { crearCargaRouter };

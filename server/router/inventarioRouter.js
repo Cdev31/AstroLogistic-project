@@ -1,10 +1,13 @@
 const { Router } = require("express");
 const { InventarioController } = require("../controllers/InventarioController");
 
-const inventoryRouter = Router();
-const inventoryController = new InventarioController()
+function crearInventarioRouter(inventarioService) {
+    const inventoryRouter = Router();
+    const inventoryController = new InventarioController(inventarioService);
 
-inventoryRouter.get("/", inventoryController.showInventory)
+    inventoryRouter.get("/", inventoryController.showInventory);
 
+    return inventoryRouter;
+}
 
-module.exports = { inventoryRouter }
+module.exports = { crearInventarioRouter };
