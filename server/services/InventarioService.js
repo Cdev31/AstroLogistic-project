@@ -18,7 +18,7 @@ class InventarioService {
     }
 
     discountStock(id, quantity) {
-        const productoItem = this.buscarPorId(id);
+        const productoItem = this.findById(id);
 
         if (!productoItem) {
             throw new Error("El suministro no existe en la base");
@@ -38,7 +38,7 @@ class InventarioService {
             throw new Error("Cantidad no permitida");
         }
 
-        const productoItem = this.buscarPorId(id);
+        const productoItem = this.findById(id);
 
         if (!productoItem) {
             throw new Error("El suministro no existe en la base")

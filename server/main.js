@@ -15,6 +15,7 @@ app.get("/", (_, res) => {
     })
 })
 ApiRouter(app);
+
 app.listen(port, () => {
     console.log(`Server in localhost:${port}`)
 })

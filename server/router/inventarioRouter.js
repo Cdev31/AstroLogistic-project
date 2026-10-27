@@ -4,7 +4,7 @@ const { InventarioController } = require("../controllers/InventarioController");
 const inventoryRouter = Router();
 const inventoryController = new InventarioController()
 
-inventarioRouter.get("/", inventoryController.showInventory)
+inventoryRouter.get("/", inventoryController.showInventory)
 
 
 module.exports = { inventoryRouter }
